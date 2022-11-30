@@ -1,5 +1,16 @@
 {
+  "scripts": {
+    "format": "npx prettier --write ."
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
   "devDependencies": {
-    "cypress": "^11.2.0"
+    "cypress": "^11.2.0",
+    "husky": "^8.0.2",
+    "prettier": "^2.8.0",
+    "pretty-quick": "^3.1.3"
   }
 }
