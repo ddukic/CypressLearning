@@ -31,3 +31,17 @@ Cypress.Commands.add('login', (username, password) => {
     cy.get('[type="submit"]').click();
     cy.get('[class="oxd-userdropdown-tab"]').should('be.visible');
 });
+Cypress.Commands.add('getUsers', (firstUser,lastUser) => {
+    cy.request(
+        'GET',
+        'web/index.php/api/v2/admin/users',
+    ).then(response => {
+        var users =[response.body.data.slice(firstUser,lastUser)]
+        cy.log(users)
+    })
+});
+Cypress.Commands.add('getToken', () => {
+    function getToken() {
+        return cy.wrap('getToken');
+      }
+});
