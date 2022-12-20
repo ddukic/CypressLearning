@@ -44,5 +44,4 @@ Cypress.Commands.add('getToken', () => {
     function getToken() {
         return cy.wrap('getToken');
       }
-    
 });

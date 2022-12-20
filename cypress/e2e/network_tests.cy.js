@@ -59,7 +59,7 @@ describe('Add user API tests', () => {
         // assert the response and status code
     });
 
-    it.only('intercept the username validation endpoint and make sure validation works', () => {
+    it('intercept the username validation endpoint and make sure validation works', () => {
         var IntResponse;
         // login
         cy.intercept('GET', 'web/index.php/api/v2/admin/validation/user-name?userName=Admin', (req) => {
@@ -80,7 +80,6 @@ describe('Add user API tests', () => {
         cy.wait('@intercept')    
           // Later in the test, you can access the request and response objects:
         // validate the response
-        
     });
     it('DOMACI', () => {
         cy.request(
