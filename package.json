@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "format": "npx prettier --write ."
+    "format": "npx prettier --write .",
+    "cypress:open": "cypress open"
   },
   "husky": {
     "hooks": {

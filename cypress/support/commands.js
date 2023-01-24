@@ -31,6 +31,14 @@ Cypress.Commands.add('login', (username, password) => {
     cy.get('[type="submit"]').click();
     cy.get('[class="oxd-userdropdown-tab"]').should('be.visible');
 });
+
+Cypress.Commands.add('logout', () => {
+    cy.get('li:only-child').click();
+    cy.get(':nth-child(4) > .oxd-userdropdown-link').click({force: true})
+    cy.get('.orangehrm-login-button').should('be.visible')
+});
+
+
 Cypress.Commands.add('getUsers', (firstUser,lastUser) => {
     cy.request(
         'GET',
