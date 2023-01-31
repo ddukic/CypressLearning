@@ -1,5 +1,5 @@
 export class MyInfoPage {
-    constructor(a) {
+    constructor(m) {
         this.firstNameInput = '[class="oxd-input oxd-input--active orangehrm-firstname"]';
         this.middleNameInput = '[class="oxd-input oxd-input--active orangehrm-middlename"]';
         this.lastNameInput = '[class="oxd-input oxd-input--active orangehrm-lastname"]';
@@ -49,6 +49,8 @@ export class MyInfoPage {
 
     selectLicenseExpiryDate(date) {
         cy.get(this.licenseExpiryDate).eq(0).click();
+        cy.get('[class="oxd-calendar-selector-year-selected"]').click();
+
         cy.contains(date).click();
     }
 

@@ -5,12 +5,13 @@ export class BasePage {
         this.myInfoLink = '[href="/web/index.php/pim/viewMyDetails"]'
     }
 
-    openAdminPage () {
+    openAdminPage() {
         cy.get(this.adminLink).click();
     }
-    openDashboardPage (){
+    openDashboardPage() {
         cy.get(this.dashboardLink).click();
-    openMyInfoPage () {
+    }
+    openMyInfoPage() {
         cy.get(this.myInfoLink).click()
     }
 }
