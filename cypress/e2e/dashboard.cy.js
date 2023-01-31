@@ -1,5 +1,5 @@
 
-const { adminPage } = require("../pageObjects/adminPage");
+//const { adminPage } = require("../pageObjects/adminPage");
 const { basePage } = require("../pageObjects/basePage");
 const { dashBoard } = require("../pageObjects/dashboard");
 
@@ -9,6 +9,7 @@ describe('Admin tests', () => {
         cy.login('Admin', 'admin123')
         basePage.openDashboardPage()
     });
+
     it('go to timewatch', () => {
         dashBoard.timeWatch()
         cy.url().should('not.include', '/dashboard')

@@ -1,5 +1,6 @@
 const { basePage } = require("../pageObjects/basePage");
 const { myInfoPage } = require("../pageObjects/myInfoPage");
+
 describe('MyInfo tests', () => {
     beforeEach(() => {
         cy.login('Admin', 'admin123')
@@ -13,6 +14,7 @@ describe('MyInfo tests', () => {
         myInfoPage.clickOnFirstSaveButton();
         myInfoPage.verifySuccesModal('Successfully Updated');
     });
+
     it('update id and personal details', () => {
         basePage.openMyInfoPage();
         myInfoPage.enterEmployeeId('55');
@@ -29,6 +31,4 @@ describe('MyInfo tests', () => {
         myInfoPage.clickOnSecondSaveButton()
         myInfoPage.verifySuccesModal('Successfully Saved')
     });
-
-    
 });
