@@ -10,7 +10,6 @@ module.exports = defineConfig({
       password: 'admin123',
       urlCallAdmin: 'https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/admin/validation/user-name?userName=Admin'
     },
-    specPattern: 'cypress/pageObjects/*.js',
     pageLoadTimeout: 90000,
     setupNodeEvents(on, config) {
       // implement node event listeners here
