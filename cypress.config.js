@@ -11,6 +11,7 @@ module.exports = defineConfig({
       urlCallAdmin: 'https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/admin/validation/user-name?userName=Admin'
     },
     pageLoadTimeout: 90000,
+    video: false,
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
