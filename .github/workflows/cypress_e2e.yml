@@ -12,7 +12,10 @@ jobs:
       # and run all Cypress tests
       - name: install
         run: npm install
-      
+
+      - name: install cypress
+        run: npm install -D cypress
+        
       - name: Cypress run
         run: npx cypress run --browser chrome --browser firefox --spec="cypress/**/**/login*"
 
