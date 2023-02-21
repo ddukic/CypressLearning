@@ -13,4 +13,4 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
-          start: npx cypress run --browser chrome --browser firefox --spec="cypress/**/**/login*"
+          start: npx cypress run --browser chrome --browser firefox --spec="cypress/e2e/login.cy,js"
