@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "cypress:run": "cypress run --env passed=$CYPRESS_PASSED,failed=$CYPRESS_FAILED",
     "format": "npx prettier --write .",
     "cypress:open": "cypress open"
   },
@@ -15,3 +16,4 @@
     "pretty-quick": "^3.1.3"
   }
 }
+
