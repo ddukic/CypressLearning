@@ -19,7 +19,7 @@ jobs:
       - name: Post results to Slack
         uses: rtCamp/action-slack-notify@v2.1.1
         env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
         with:
           status: 'completed'
           color: ${{ job.status == 'success' && '#36a64f' || '#ff0000' }}
