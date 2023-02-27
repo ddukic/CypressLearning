@@ -8,7 +8,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        
+      - name: Install dependencies
+        run: npm install  
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
       - name: Cypress run
@@ -16,3 +17,16 @@ jobs:
         with:
           browser: firefox
           spec: cypress/e2e/login.cy.js
+      - name: Post results to Slack
+        uses: rtCamp/action-slack-notify@v2.1.1
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+        with:
+          status: 'completed'
+          color: ${{ job.status == 'success' && '#36a64f' || '#ff0000' }}
+          fields: |
+            Tests Passed: ${{ env.CYPRESS_PASSED }}
+            Tests Failed: ${{ env.CYPRESS_FAILED }}
+          channel: '#cypress_is_the_best'
+      - name: Send Cypress test results to Slack
+        run: npx cypress run --reporter @cypress/slack-reporter
