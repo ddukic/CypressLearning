@@ -17,6 +17,8 @@ jobs:
           browser: firefox
           spec: cypress/e2e/login.cy.js
           record: true
+        env:
+          CYPRESS_RECORD_KEY: I_am_the_smartest_key_around
 
       - name: print me
         run: ls -la
