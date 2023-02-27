@@ -28,3 +28,5 @@ jobs:
             Tests Passed: ${{ env.CYPRESS_PASSED }}
             Tests Failed: ${{ env.CYPRESS_FAILED }}
           channel: '#cypress_is_the_best'
+      - name: Send Cypress test results to Slack
+        run: npx cypress run --reporter @cypress/slack-reporter
