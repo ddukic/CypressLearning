@@ -19,7 +19,7 @@ jobs:
 
       - name: read results
         # run: head -n 51 results.text | tail -1 >> $GITHUB_ENV
-        run: echo "CYPRESS_PASSED=1" >> $GITHUB_ENV
+        run: echo "CYPRESS_PASSED=$(head -n 51 file | tail -1)" >> $GITHUB_ENV
 
       - name: Post results to Slack
         uses: rtCamp/action-slack-notify@v2.1.1
