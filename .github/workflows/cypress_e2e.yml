@@ -27,7 +27,7 @@ jobs:
           SLACK_CHANNEL: general
           SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
           SLACK_ICON: https://github.com/rtCamp.png?size=48
-          SLACK_MESSAGE: 'Tests passed: ${{ env.CYPRESS_PASSED }}'
+          SLACK_MESSAGE: ${{ env.CYPRESS_PASSED }}
           SLACK_TITLE: Post Title
           SLACK_USERNAME: slack
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
