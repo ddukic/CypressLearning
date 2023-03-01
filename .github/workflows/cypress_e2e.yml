@@ -33,6 +33,8 @@ jobs:
           SLACK_USERNAME: slack
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
 
-
       - name: print me
         run: ls -la
+      
+      - name: echo
+        run: echo ${{ env.CYPRESS_PASSED }}
