@@ -11,15 +11,24 @@ jobs:
         
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
-      - name: Cypress run
-        uses: cypress-io/github-action@v5
-        with:
-          browser: firefox
-          spec: cypress/e2e/login.cy.js
-          record: true
+      - name: run tests
+        run: npx cypress run --spec "cypress/e2e/login.cy.js" >> results.text
+
+      - name: read results
+        # run: head -n 51 results.text | tail -1 >> $GITHUB_ENV
+        run: echo "CYPRESS_PASSED:1" >> $GITHUB_ENV
+
+      - name: Post results to Slack
+        uses: rtCamp/action-slack-notify@v2.1.1
         env:
-          CYPRESS_RECORD_KEY: I_am_the_smartest_key_around
-          CYPRESS_PROJECT_ID: needs_to_be_a_string
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+        with:
+          status: 'completed'
+          color: ${{ job.status == 'success' && '#36a64f' || '#ff0000' }}
+          fields: |
+            Tests Passed: ${{ env.CYPRESS_PASSED }}
+            Tests Failed: ${{ env.CYPRESS_FAILED }}
+          channel: '#cypress_is_the_best'
 
       - name: print me
         run: ls -la
