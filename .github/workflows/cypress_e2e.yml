@@ -30,7 +30,7 @@ jobs:
           SLACK_MESSAGE: 'Tests passed: ${{ env.CYPRESS_PASSED }}'
           SLACK_TITLE: Post Title
           SLACK_USERNAME: wedoqa
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
 
 
       - name: print me
